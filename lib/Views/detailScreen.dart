@@ -109,8 +109,6 @@ class DetailScreen extends StatelessWidget {
         SizedBox(height: size(context).height * 0.01),
         Text(
           dummyData.popularWebtoons[index].description,
-          overflow: TextOverflow.ellipsis,
-          maxLines: 2,
         ),
         SizedBox(height: size(context).height * 0.01),
         Text('Major Characters in ${dummyData.popularWebtoons[index].title}',

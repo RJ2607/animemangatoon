@@ -12,7 +12,7 @@ class DummyData extends GetxController {
           "https://animemangatoon.com/wp-content/uploads/2024/09/Screenshot-2024-09-16-123040-750x375.webp",
       url: "https://animemangatoon.com/hello-baby/",
       description:
-          "Gwen is a kind and passionate young woman with a tragic backstory...",
+          "Gwen is a kind and passionate young woman with a tragic backstory who finds herself in a whirlwind romance after a vacation fling.",
       creator: "Enjelicious",
       genre: "Romance, Family, Comedy",
       details: DetailsModel(
