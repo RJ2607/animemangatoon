@@ -3,6 +3,8 @@ import 'package:animemangatoon/dummyData.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'favScreen.dart';
+
 // Controller to handle scroll logic
 class ScrollControllerGetX extends GetxController {
   final ScrollController scrollController = ScrollController();
@@ -93,7 +95,9 @@ class HomeScreen extends StatelessWidget {
           ),
           ListTile(
             title: Text('Favorites'),
-            onTap: () {},
+            onTap: () {
+              Get.to(() => FavoritesScreen());
+            },
           ),
           ListTile(
             title: Text('About'),
