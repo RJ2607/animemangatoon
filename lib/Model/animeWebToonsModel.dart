@@ -1,6 +1,8 @@
 import 'package:animemangatoon/Model/detailsModel.dart';
 import 'package:hive/hive.dart';
 
+part 'animeWebToonsModel.g.dart';
+
 @HiveType(typeId: 0)
 class AnimeWebToonsModel {
   @HiveField(0)

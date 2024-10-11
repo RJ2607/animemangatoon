@@ -1,9 +1,11 @@
 import 'dart:developer';
 
+import 'package:animemangatoon/Model/animeWebToonsModel.dart';
 import 'package:animemangatoon/dummyData.dart';
 import 'package:custom_rating_bar/custom_rating_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hive_flutter/adapters.dart';
 
 class DetailScreen extends StatelessWidget {
   DetailScreen({super.key});
@@ -13,6 +15,8 @@ class DetailScreen extends StatelessWidget {
   size(BuildContext context) => MediaQuery.of(context).size;
 
   Rx<bool> isFavorite = false.obs;
+
+  final Box<AnimeWebToonsModel> favoritesBox = Hive.box('favorites');
 
   @override
   Widget build(BuildContext context) {
@@ -29,6 +33,8 @@ class DetailScreen extends StatelessWidget {
   }
 
   AppBar _buildAppBar(BuildContext context, int index) {
+    isFavorite.value =
+        favoritesBox.containsKey(dummyData.popularWebtoons[index].title);
     return AppBar(
       title: Text(dummyData.popularWebtoons[index].title,
           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
@@ -37,6 +43,14 @@ class DetailScreen extends StatelessWidget {
           () => IconButton(
             onPressed: () {
               isFavorite.value = !isFavorite.value;
+              if (isFavorite.value) {
+                // Add the current webtoon to favorites
+                favoritesBox.put(dummyData.popularWebtoons[index].title,
+                    dummyData.popularWebtoons[index]);
+              } else {
+                // Remove it from favorites
+                favoritesBox.delete(dummyData.popularWebtoons[index].title);
+              }
             },
             icon: Icon(
               isFavorite.value

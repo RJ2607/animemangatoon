@@ -1,7 +1,9 @@
 import 'package:animemangatoon/Model/characterModel.dart';
 import 'package:hive/hive.dart';
 
-@HiveType(typeId: 2)
+part 'detailsModel.g.dart';
+
+@HiveType(typeId: 1)
 class DetailsModel {
   @HiveField(0)
   final List<CharacterModel> characters;
